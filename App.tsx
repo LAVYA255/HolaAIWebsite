@@ -13,6 +13,7 @@ import Footer from './components/Footer';
 
 const App: React.FC = () => {
   const [activePage, setActivePage] = useState<'home' | 'pricing'>('home');
+  const PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=com.holavoicemail.app";
 
   useEffect(() => {
     const handleHashChange = () => {
@@ -36,7 +37,7 @@ const App: React.FC = () => {
       <Navbar onPageChange={setActivePage} activePage={activePage} />
       
       {activePage === 'home' ? (
-        <main className="pt-20 md:pt-24">
+        <main className="pt-16 md:pt-20">
           <Hero />
           <div id="how-it-works">
             <HowItWorks />
@@ -46,18 +47,22 @@ const App: React.FC = () => {
           <ComparisonTable />
           <BlogTeaser />
           <FaqSection category="general" />
-          <div className="py-32 px-6 flex flex-col items-center justify-center text-center bg-black text-white">
-             <h2 className="text-4xl md:text-8xl font-[900] tracking-tighter mb-12 leading-tight">Never miss what matters again.</h2>
+          <div className="py-44 px-6 flex flex-col items-center justify-center text-center bg-black text-white relative overflow-hidden">
+             {/* Vibrant blobs for the final section - scaled down */}
+             <div className="absolute top-0 left-0 w-80 h-80 bg-[#E0D7FF]/20 blur-[120px] animate-pulse"></div>
+             <div className="absolute bottom-0 right-0 w-[32rem] h-[32rem] bg-[#E2FFD7]/10 blur-[160px] pulse-blob"></div>
+             
+             <h2 className="text-5xl md:text-[6.5rem] font-[900] tracking-tighter mb-16 leading-[1.1] z-10">Never miss <br/>what matters again.</h2>
              <button 
-              onClick={() => { window.location.hash = '#pricing'; setActivePage('pricing'); }}
-              className="px-12 py-8 bg-[#E2FFD7] text-black text-2xl font-[900] rounded-full hover:scale-105 transition-all shadow-[0_20px_40px_rgba(0,0,0,0.2)] active:scale-95 uppercase tracking-widest border-4 border-black"
+              onClick={() => window.open(PLAY_STORE_URL, '_blank')}
+              className="z-10 px-16 py-10 bg-[#FFE7D7] text-black text-3xl font-[900] rounded-[2.5rem] hover:scale-110 hover:bg-white transition-all shadow-[0_32px_80px_rgba(255,231,215,0.25)] active:scale-95 uppercase tracking-[0.2em] border-[6px] border-white/10"
              >
                Upgrade to Hola AI →
              </button>
           </div>
         </main>
       ) : (
-        <div className="pt-20 md:pt-24">
+        <div className="pt-16 md:pt-20">
           <PricingPage />
         </div>
       )}

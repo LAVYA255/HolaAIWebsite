@@ -41,7 +41,7 @@ const PricingPage: React.FC = () => {
     <div id="pricing" className="pt-40 pb-20 px-6 bg-black">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-24">
-          <h1 className="text-5xl md:text-[8rem] font-black mb-10 tracking-tighter opacity-0 animate-fade-in-up leading-none">Simple pricing.</h1>
+          <h1 className="text-5xl md:text-[8rem] font-black mb-10 tracking-tighter opacity-0 animate-fade-in-up leading-none text-white">Simple pricing.</h1>
           <p className="text-white/40 text-2xl font-bold max-w-xl mx-auto opacity-0 animate-fade-in-up stagger-1">One plan to rule your calls. Try Hola AI free first and see the difference.</p>
         </div>
 
@@ -51,17 +51,17 @@ const PricingPage: React.FC = () => {
               key={i} 
               className={`p-14 rounded-[3rem] border-4 flex flex-col transition-all duration-500 hover:scale-[1.03] opacity-0 animate-fade-in-up stagger-${i + 2} ${
                 plan.highlight 
-                ? 'bg-white text-black border-white shadow-[0_30px_90px_rgba(255,255,255,0.15)]' 
+                ? 'bg-white text-black border-white shadow-[0_30px_90px_rgba(224,215,255,0.15)]' 
                 : 'bg-zinc-950 text-white border-white/10'
               }`}
             >
               <div className="mb-14">
                 <div className="flex justify-between items-start mb-6">
-                  <h3 className={`text-[10px] font-black uppercase tracking-[0.3em] px-4 py-1.5 rounded-full ${plan.highlight ? 'bg-black text-white' : 'bg-white/10 text-white/60'}`}>
+                  <h3 className={`text-[10px] font-black uppercase tracking-[0.3em] px-4 py-1.5 rounded-full ${plan.highlight ? 'bg-[#E0D7FF] text-black border-2 border-black' : 'bg-white/10 text-white/60'}`}>
                     {plan.name}
                   </h3>
                   {plan.highlight && (
-                    <span className="text-[10px] font-black text-black border-2 border-black px-3 py-1 rounded-full uppercase tracking-widest">Most Popular</span>
+                    <span className="text-[10px] font-black text-black border-2 border-black px-3 py-1 rounded-full uppercase tracking-widest bg-[#E2FFD7]">Most Popular</span>
                   )}
                 </div>
                 <div className="flex items-end gap-1 mb-8">
@@ -74,7 +74,7 @@ const PricingPage: React.FC = () => {
               <ul className="space-y-6 mb-14 flex-grow">
                 {plan.features.map((f, fi) => (
                   <li key={fi} className="flex items-center gap-5 text-base font-black uppercase tracking-widest">
-                    <div className={`w-6 h-6 rounded-full flex items-center justify-center ${plan.highlight ? 'bg-black text-white' : 'bg-white/20 text-white'}`}>
+                    <div className={`w-6 h-6 rounded-full flex items-center justify-center ${plan.highlight ? 'bg-[#E0D7FF] text-black border-2 border-black' : 'bg-white/20 text-white'}`}>
                       <Check className="w-4 h-4" />
                     </div>
                     {f}

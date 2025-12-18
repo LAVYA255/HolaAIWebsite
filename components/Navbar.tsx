@@ -7,6 +7,8 @@ interface NavbarProps {
 }
 
 const Navbar: React.FC<NavbarProps> = ({ activePage, onPageChange }) => {
+  const PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=com.holavoicemail.app";
+
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
     e.preventDefault();
     
@@ -33,25 +35,24 @@ const Navbar: React.FC<NavbarProps> = ({ activePage, onPageChange }) => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-[100] border-b-4 border-white/5 bg-black text-white h-20 md:h-24">
+    <nav className="fixed top-0 left-0 right-0 z-[100] border-b-4 border-black bg-black text-white h-20 md:h-24">
       <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
         {/* Logo Section */}
         <div 
-          className="flex items-center gap-4 cursor-pointer group" 
+          className="flex items-center gap-5 cursor-pointer group" 
           onClick={() => { onPageChange('home'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
         >
-          <div className="w-10 h-10 md:w-12 md:h-12 overflow-hidden rounded-[1.2rem] bg-white border-[3px] border-white group-hover:rotate-12 transition-transform duration-500 shadow-[0_0_25px_rgba(255,255,255,0.2)]">
+          <div className="w-10 h-10 md:w-14 md:h-14 overflow-hidden rounded-[1rem] bg-black border-[3px] border-white/20 group-hover:rotate-6 transition-transform duration-500 shadow-[0_0_30px_rgba(255,255,255,0.05)] flex items-center justify-center relative">
             <img 
               src="logo-128x128.png" 
-              alt="Hola AI Logo" 
-              className="w-full h-full object-cover invert"
-              onError={(e) => { e.currentTarget.style.display = 'none'; }}
+              alt="H" 
+              className="w-full h-full object-cover relative z-10"
             />
           </div>
-          <span className="text-2xl md:text-3xl font-[900] tracking-tighter uppercase italic leading-none">Hola AI</span>
+          <span className="text-2xl md:text-4xl font-[900] tracking-[-0.02em] uppercase leading-none">Hola AI</span>
         </div>
 
-        {/* Navigation Links - Heavy Weight & Wide Tracking */}
+        {/* Navigation Links */}
         <div className="hidden lg:flex items-center gap-12 text-[12px] font-[900] uppercase tracking-[0.4em]">
           <a 
             href="#features" 
@@ -98,8 +99,8 @@ const Navbar: React.FC<NavbarProps> = ({ activePage, onPageChange }) => {
         {/* CTA Section */}
         <div className="flex items-center gap-4">
           <button 
-            onClick={() => onPageChange('pricing')}
-            className="bg-[#E2FFD7] text-black px-8 md:px-12 py-3.5 rounded-full text-[12px] font-[900] uppercase tracking-[0.25em] hover:scale-105 transition-all active:scale-95 shadow-[0_10px_40px_rgba(226,255,215,0.25)] border-2 border-transparent hover:border-black"
+            onClick={() => window.open(PLAY_STORE_URL, '_blank')}
+            className="bg-[#E2FFD7] text-black px-8 md:px-12 py-4 rounded-full text-[12px] font-[900] uppercase tracking-[0.25em] hover:scale-105 transition-all active:scale-95 shadow-[0_10px_40px_rgba(226,255,215,0.25)] border-2 border-black"
           >
             Get App
           </button>
